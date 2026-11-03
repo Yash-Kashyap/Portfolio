@@ -1,0 +1,232 @@
+---
+---
+<section
+  id="top"
+  data-screen-label="00 Hero"
+  style="position:relative;min-height:100vh;padding:96px var(--gx) 0 calc(var(--rail) + var(--gx));display:flex;flex-direction:column;overflow:hidden"
+>
+  <!-- Background Portrait -->
+  <div
+    id="hero-portrait"
+    data-view=""
+    aria-hidden="false"
+    style="position:absolute;left:50%;top:64px;height:min(80vh,880px);aspect-ratio:4 / 5;max-width:100%;transform:translateX(-50%);-webkit-mask-image:radial-gradient(ellipse 50% 56% at 50% 42%,#000 52%,transparent 100%);mask-image:radial-gradient(ellipse 50% 56% at 50% 42%,#000 52%,transparent 100%);--asc:0;filter:contrast(1.08) saturate(1.1);cursor:pointer"
+  >
+    <img
+      src="/assets/hero-main.jpg"
+      alt="Portrait of Yash Kashyap"
+      fetchpriority="high"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 10%;display:block;opacity:calc(1 - var(--asc, 0));transition:opacity .6s cubic-bezier(.65,0,.35,1)"
+    />
+    <span
+      style="position:absolute;inset:0;background:radial-gradient(circle at 78% 28%,rgba(255,74,28,.55),transparent 46%);mix-blend-mode:overlay;pointer-events:none"
+    ></span>
+    <span
+      style="position:absolute;inset:0;background-image:radial-gradient(circle,transparent 0 1.1px,var(--paper) 1.65px);background-size:3.6px 3.6px;opacity:calc(.25 * (1 - var(--asc, 0)) + var(--asc, 0) * .35);transition:opacity .6s;pointer-events:none"
+    ></span>
+    <canvas
+      id="hero-ascii-canvas"
+      aria-hidden="true"
+      style="position:absolute;inset:0;width:100%;height:100%;display:block;opacity:var(--asc, 0);transition:opacity .35s ease;pointer-events:none"
+    ></canvas>
+  </div>
+
+  <!-- Top row -->
+  <div
+    data-intro=""
+    style="position:relative;z-index:2;display:flex;justify-content:space-between;gap:24px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+  >
+    <span style="display:flex;align-items:center;gap:10px">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--acc)"></span>
+      Developer. Data engineer. Builder.
+    </span>
+    <span style="display:var(--desk-d);color:var(--mute)">
+      Based in Nahan, HP · Working worldwide
+    </span>
+  </div>
+
+  <!-- Left index (desktop only) -->
+  <div
+    data-intro=""
+    style="position:absolute;z-index:2;left:calc(var(--rail) + var(--gx));top:clamp(140px,26%,calc(100% - 520px));display:var(--side-d);flex-direction:column;gap:22px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+  >
+    <span style="color:var(--acc)">00 / Index</span>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="color:var(--acc);font-size:22px;line-height:1">+</span>
+      <span>Websites</span>
+      <span>Web apps</span>
+      <span>AI &amp; automation</span>
+    </div>
+  </div>
+
+  <!-- Spacer -->
+  <div style="flex:1;min-height:30vh"></div>
+
+  <!-- Name block -->
+  <div
+    style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:40px"
+  >
+    <span
+      data-intro=""
+      style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:12px"
+    >
+      AI web developer · Nahan, India
+    </span>
+    <h1
+      style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-name);line-height:.86;letter-spacing:-.035em;display:flex;flex-wrap:wrap;justify-content:center;column-gap:.22em"
+    >
+      <span style="display:block;overflow:hidden;padding:0 .04em .24em;margin-bottom:-.18em">
+        <span data-rise="" style="display:block">Yash</span>
+      </span>
+      <span style="display:block;overflow:hidden;padding:0 .1em .24em 0;margin-bottom:-.18em">
+        <span data-rise="" style="display:block;font-style:italic">Kashyap</span>
+      </span>
+    </h1>
+    <p
+      style="margin:18px 0 0;font-family:'Instrument Serif',serif;font-size:var(--d-tag);line-height:1.05;letter-spacing:-.02em;overflow:hidden;padding-bottom:.08em"
+    >
+      <span data-rise="" style="display:block">
+        I build <em>websites</em> people — actually <em style="color:var(--acc)">use.</em>
+      </span>
+    </p>
+    <p
+      data-intro=""
+      style="margin:16px 0 0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+    >
+      <span style="color:var(--acc)">●</span> By day: data pipelines. By night: websites people use.
+    </p>
+    <div
+      data-intro=""
+      style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px 28px;margin-top:28px"
+    >
+      <a
+        href="#work"
+        class="hover:border-ink hover:text-ink transition-colors"
+        style="display:flex;align-items:center;gap:14px;padding:15px 26px;border-radius:999px;border:1px solid var(--hair);background:var(--surf);font-size:16px"
+      >
+        Explore my work <span>↓</span>
+      </a>
+      <a
+        href="#contact"
+        style="display:flex;align-items:center;gap:18px;padding:6px 0;border-bottom:1px solid var(--ink);font-size:16px"
+      >
+        Start a conversation <span>↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div
+    data-intro=""
+    style="position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:16px 0;border-top:1px solid var(--hair);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+  >
+    <a href="#what">↓ Scroll to discover</a>
+    <span style="color:var(--mute)">06 sites shipped · 4 industries · 1 developer, end-to-end</span>
+  </div>
+
+  <!-- Marquee -->
+  <div
+    style="margin:0 calc(-1 * var(--gx)) 0 calc(-1 * (var(--rail) + var(--gx)));border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);overflow:hidden;padding:14px 0"
+  >
+    <div
+      class="hover:[animation-play-state:paused]"
+      style="display:flex;width:max-content;animation:marquee 40s linear infinite;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase"
+    >
+      <span style="display:flex;gap:28px;padding-right:28px;white-space:nowrap">
+        <span>Restaurants</span><span style="color:var(--acc)">✺</span><span>Cafés</span><span style="color:var(--acc)">✺</span><span>Booking platforms</span><span style="color:var(--acc)">✺</span><span>Real-time apps</span><span style="color:var(--acc)">✺</span><span>WhatsApp ordering</span><span style="color:var(--acc)">✺</span><span>Google Maps &amp; SEO</span><span style="color:var(--acc)">✺</span><span>Restaurants</span><span style="color:var(--acc)">✺</span><span>Cafés</span><span style="color:var(--acc)">✺</span><span>Booking platforms</span><span style="color:var(--acc)">✺</span><span>Real-time apps</span><span style="color:var(--acc)">✺</span><span>WhatsApp ordering</span><span style="color:var(--acc)">✺</span><span>Google Maps &amp; SEO</span><span style="color:var(--acc)">✺</span>
+      </span>
+      <span aria-hidden="true" style="display:flex;gap:28px;padding-right:28px;white-space:nowrap">
+        <span>Restaurants</span><span style="color:var(--acc)">✺</span><span>Cafés</span><span style="color:var(--acc)">✺</span><span>Booking platforms</span><span style="color:var(--acc)">✺</span><span>Real-time apps</span><span style="color:var(--acc)">✺</span><span>WhatsApp ordering</span><span style="color:var(--acc)">✺</span><span>Google Maps &amp; SEO</span><span style="color:var(--acc)">✺</span><span>Restaurants</span><span style="color:var(--acc)">✺</span><span>Cafés</span><span style="color:var(--acc)">✺</span><span>Booking platforms</span><span style="color:var(--acc)">✺</span><span>Real-time apps</span><span style="color:var(--acc)">✺</span><span>WhatsApp ordering</span><span style="color:var(--acc)">✺</span><span>Google Maps &amp; SEO</span><span style="color:var(--acc)">✺</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { asciiPrep, asciiDraw, type AsciiPrepResult } from '../scripts/fx';
+
+  const EASE = 'cubic-bezier(.2,.7,0,1)';
+  const pt = document.getElementById('hero-portrait');
+  const cv = document.getElementById('hero-ascii-canvas') as HTMLCanvasElement | null;
+
+  let ascP: AsciiPrepResult | null = null;
+  let ascOn = false;
+  let ascR = 0;
+
+  window.addEventListener('resize', () => {
+    ascP = null;
+  });
+
+  async function heroIn() {
+    if (!pt || !cv) return;
+    pt.style.setProperty('--asc', '1');
+    ascOn = true;
+    if (!ascP) {
+      ascP = await asciiPrep(cv, '/assets/hero-main.jpg', { cell: 10, pos: [0.5, 0.1] });
+    }
+    cancelAnimationFrame(ascR);
+    const t0 = performance.now();
+    let last = 0;
+    const step = (now: number) => {
+      if (!ascOn || !ascP) return;
+      const t = Math.min(1, (now - t0) / 750);
+      if (now - last > 40 || t === 1) {
+        last = now;
+        asciiDraw(ascP, t, '#F1EDE4', '#FF4A1C');
+      }
+      if (t < 1) {
+        ascR = requestAnimationFrame(step);
+      }
+    };
+    ascR = requestAnimationFrame(step);
+  }
+
+  function heroOut() {
+    ascOn = false;
+    cancelAnimationFrame(ascR);
+    if (pt) pt.style.setProperty('--asc', '0');
+  }
+
+  if (pt) {
+    pt.addEventListener('mouseenter', heroIn);
+    pt.addEventListener('mouseleave', heroOut);
+  }
+
+  // Intro animation on load (30ms after mount)
+  setTimeout(() => {
+    if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    const rise = document.querySelectorAll<HTMLElement>('[data-rise]');
+    rise.forEach((el, i) =>
+      el.animate(
+        [
+          { transform: 'translateY(110%)' },
+          { transform: 'translateY(0)' },
+        ],
+        { duration: 900, delay: i * 90, easing: EASE, fill: 'backwards' }
+      )
+    );
+
+    if (pt) {
+      pt.animate(
+        [
+          { clipPath: 'inset(100% 0 0 0)' },
+          { clipPath: 'inset(0 0 0 0)' },
+        ],
+        {
+          duration: 900,
+          delay: 300 + rise.length * 90,
+          easing: EASE,
+          fill: 'backwards',
+        }
+      );
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-intro]').forEach((el, i) =>
+      el.animate(
+        [{ opacity: 0 }, { opacity: 1 }],
+        { duration: 700, delay: 900 + i * 80, easing: EASE, fill: 'backwards' }
+      )
+    );
+  }, 30);
+</script>
+

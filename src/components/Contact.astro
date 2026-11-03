@@ -1,0 +1,99 @@
+---
+import { SOCIALS, WA, EMAIL } from '../data/site';
+---
+<section
+  id="contact"
+  data-screen-label="07 Contact"
+  style="scroll-margin-top:64px;position:relative;padding:var(--secpad) var(--cpad) 120px calc(var(--rail) + var(--gx));border-top:1px solid var(--hair);display:grid;gap:48px"
+>
+  <span
+    style="justify-self:end;white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+  >
+    <span style="color:var(--acc)">07</span> — Contact
+  </span>
+
+  <h2
+    style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-xl);line-height:.9;letter-spacing:-.03em"
+  >
+    Let's put your<br />
+    <span style="padding-left:calc(100% / var(--cols))">
+      business <em style="color:var(--acc)">online.</em>
+    </span>
+  </h2>
+
+  <div
+    style="display:flex;flex-wrap:wrap;align-items:baseline;gap:16px 24px;padding-top:32px;border-top:1px solid var(--hair)"
+  >
+    <button
+      id="copy-email-btn"
+      aria-label="Copy email address"
+      class="hover:[background-size:100%_2px]"
+      style="padding:0;border:0;background:linear-gradient(currentColor,currentColor) 0 100% / 0% 2px no-repeat;color:var(--ink);cursor:pointer;font-family:'Inter Tight',sans-serif;font-weight:500;font-size:clamp(26px,4.6vw,76px);letter-spacing:-.03em;line-height:1.1;transition:background-size .6s cubic-bezier(.2,.7,0,1);word-break:break-all;text-align:left"
+    >
+      {EMAIL}
+    </button>
+    <span
+      style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+    >
+      [ click to copy ]
+    </span>
+  </div>
+
+  <div style="display:grid">
+    {SOCIALS.map((so) => (
+      <a
+        data-social-row=""
+        href={so.isWa ? WA : so.href}
+        data-wa-link={so.isWa ? "" : undefined}
+        target={so.href === '#' ? undefined : '_blank'}
+        rel="noopener noreferrer"
+        style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 16px;margin:0 -16px;border-top:1px solid var(--hair);background:transparent;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:clamp(24px,3.6vw,52px);letter-spacing:.02em;text-transform:uppercase;line-height:1;transition:background-color .3s,color .3s"
+      >
+        <span style="display:flex;align-items:baseline;gap:16px">
+          {so.label}
+          <span style="font-size:11px;letter-spacing:.08em;opacity:.6">{so.note}</span>
+        </span>
+        <span
+          data-social-arrow=""
+          style="display:inline-block;transform:rotate(0deg);transition:transform .4s cubic-bezier(.2,.7,0,1)"
+        >
+          ↗
+        </span>
+      </a>
+    ))}
+  </div>
+
+  <div
+    style="display:flex;flex-wrap:wrap;gap:8px 20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+  >
+    <span>
+      Responds within 6h <span style="text-transform:none;letter-spacing:0">(unless I’m asleep in India, haha)</span>
+    </span>
+    <span>·</span>
+    <span>
+      Nahan, IN <span data-clock="hm"></span> IST
+    </span>
+    <span>·</span>
+    <span>Open to work worldwide</span>
+  </div>
+
+  <!-- Draggable Polaroid -->
+  <div
+    id="polaroid"
+    style="position:absolute;right:calc(var(--gx) + 4vw);top:var(--pol-top);z-index:45;width:var(--pol-w);padding:10px 10px 0;background:#FBFAF6;box-shadow:0 24px 50px -20px rgba(0,0,0,.45);transform:rotate(-4deg);cursor:grab;touch-action:none;user-select:none"
+  >
+    <img
+      src="/assets/polaroid-cafe.jpg"
+      alt="Yash laughing at a café table"
+      draggable="false"
+      loading="lazy"
+      style="width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:sepia(.12);pointer-events:none"
+    />
+    <span
+      style="display:block;padding:10px 2px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#141210"
+    >
+      Psst. You can move me.
+    </span>
+  </div>
+</section>
+

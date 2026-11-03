@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #0F0E0C;
+  --ink: #F1EDE4;
+  --mute: rgba(241, 237, 228, 0.6);
+  --hair: rgba(241, 237, 228, 0.15);
+  --surf: #1A1815;
+  --acc: #FF4A1C;
+  --onink: #0F0E0C;
+
+  --gx: 32px;
+  --rail: 48px;
+  --cols: 12;
+  --secpad: 200px;
+
+  --c-stmt: 4 / -1;
+  --c-pl: 1 / span 5;
+  --c-pr: 7 / -1;
+  --c-wr: 1 / -1;
+  --c-wl: 1 / span 4;
+  --wl-d: none;
+  --c-a: 1 / span 8;
+  --c-b: 9 / -1;
+  --c-l: 1 / span 5;
+  --c-r: 7 / -1;
+  --c-side: 10 / -1;
+
+  --gh: min(48vh, 540px);
+  --gw: calc(var(--gh) * 0.8);
+  --fw: calc(100% - var(--gw) + 2vw); /* project frame width (leaves room for guide) */
+  --mini-b: 24px;
+  --cpad: calc(var(--gx) + var(--gw) - 2vw);
+
+  --card-w: 32vw;
+  --card-h: min(70vh, calc(100vh - 340px));
+  --card-min: 0px;
+  --svc-pt: 96px;
+  --svc-head-mb: 40px;
+  --svc-gap: 24px;
+  --svc-h3: clamp(40px, 3.6vw, 64px);
+  --svc-img-min: 150px;
+  --pol-top: calc(var(--secpad) + 60px);
+  --pol-w: clamp(140px, 14vw, 220px);
+  --svc-pos: sticky;
+  --svc-h: 100vh;
+  --svc-ov: hidden;
+
+  --desk-d: flex;
+  --mob-d: none;
+  --sticky: sticky;
+  --side-d: flex;
+
+  --d-name: clamp(88px, 15vw, 280px);
+  --d-tag: clamp(30px, 3.6vw, 60px);
+  --d-xl: clamp(64px, 10.6vw, 220px);
+  --d-l: clamp(48px, 6vw, 112px);
+  --stmt: clamp(36px, 4.4vw, 80px);
+}
+
+@media (max-height: 780px) {
+  :root {
+    --side-d: none;
+    --card-h: min(70vh, calc(100vh - 300px));
+    --svc-pt: 80px;
+    --svc-head-mb: 20px;
+    --svc-gap: 12px;
+    --svc-h3: clamp(30px, 2.8vw, 44px);
+    --svc-img-min: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --side-d: none;
+    --fw: 100%;
+    --mini-b: 84px;
+    --cpad: var(--gx);
+    --gx: 16px;
+    --rail: 0px;
+    --cols: 4;
+    --secpad: 96px;
+
+    --c-stmt: 1 / -1;
+    --c-pl: 1 / -1;
+    --c-pr: 1 / -1;
+    --c-wr: 1 / -1;
+    --c-wl: 1 / -1;
+    --wl-d: none;
+    --c-a: 1 / -1;
+    --c-b: 1 / -1;
+    --c-l: 1 / -1;
+    --c-r: 1 / -1;
+    --c-side: 1 / -1;
+
+    --card-w: 82vw;
+    --card-h: auto;
+    --card-min: 440px;
+    --svc-pt: 96px;
+    --svc-head-mb: 40px;
+    --svc-gap: 24px;
+    --svc-h3: clamp(40px, 3.6vw, 64px);
+    --svc-img-min: 150px;
+    --pol-top: calc(var(--secpad) + 195px);
+    --pol-w: 104px;
+    --svc-pos: relative;
+    --svc-h: auto;
+    --svc-ov: auto;
+
+    --desk-d: none;
+    --mob-d: flex;
+    --sticky: static;
+
+    --d-name: 24vw;
+    --d-tag: 8.4vw;
+    --d-xl: 18vw;
+    --d-l: 13vw;
+    --stmt: 9vw;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--acc);
+}
+
+::selection {
+  background: var(--acc);
+  color: #fff;
+}
+
+html.nocur,
+html.nocur * {
+  cursor: none !important;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 74, 28, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 74, 28, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 74, 28, 0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}
+
+
+/* Skip link: off-screen until keyboard-focused */
+.skip-link {
+  position: fixed;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 8px;
+}

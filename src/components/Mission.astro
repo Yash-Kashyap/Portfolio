@@ -1,0 +1,79 @@
+---
+import { MISSIONS, WA, EMAIL } from '../data/site';
+---
+<section
+  id="mission"
+  data-screen-label="06 Mission"
+  style="padding:var(--secpad) var(--gx) var(--secpad) calc(var(--rail) + var(--gx));border-top:1px solid var(--hair);position:relative;display:grid;gap:48px"
+>
+  <span
+    style="position:absolute;top:0;left:calc(var(--rail) + var(--gx));transform:translateY(-50%);background:var(--paper);padding-right:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+  >
+    <span style="color:var(--acc)">06</span> — What do you need?
+  </span>
+
+  <h2
+    style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-l);line-height:.95;letter-spacing:-.03em;max-width:12em"
+  >
+    Pick your <em>mission.</em>
+  </h2>
+
+  <div
+    role="radiogroup"
+    aria-label="What do you need?"
+    style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:16px"
+  >
+    {MISSIONS.map((label, i) => (
+      <button
+        data-mission-btn={i}
+        role="radio"
+        aria-checked="false"
+        style="min-height:200px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:24px;border-radius:18px;border:1px solid var(--hair);background:transparent;color:var(--ink);text-align:left;cursor:pointer;transition:background-color .35s,color .35s,border-color .35s"
+      >
+        <span
+          style="display:flex;justify-content:space-between;width:100%;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+        >
+          <span data-mission-dot>○</span>
+          <span style="opacity:.6">0{i + 1}</span>
+        </span>
+        <span
+          style="font-family:'Instrument Serif',serif;font-size:clamp(30px,2.6vw,42px);line-height:1;letter-spacing:-.02em"
+        >
+          {label}
+        </span>
+      </button>
+    ))}
+  </div>
+
+  <div
+    style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;border-top:1px solid var(--hair)"
+  >
+    <span
+      id="mission-status"
+      style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+    >
+      Select a mission — I’ll pre-fill the message for you
+    </span>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <a
+        data-mail-link
+        href={`mailto:${EMAIL}?subject=New%20project%20enquiry&body=Hi%20Yash%2C%20I%20need%20a%20website%20for%20my%20business.`}
+        class="hover:text-white transition-colors"
+        style="padding:14px 22px;border-radius:999px;border:1px solid var(--acc);background:var(--acc);color:#0F0E0C;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase"
+      >
+        Send by email ↗
+      </a>
+      <a
+        data-wa-link
+        href={WA}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:bg-[#1EBE5A] transition-colors"
+        style="padding:14px 22px;border-radius:999px;background:#25D366;color:#0F0E0C;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase"
+      >
+        Send on WhatsApp ↗
+      </a>
+    </div>
+  </div>
+</section>
+

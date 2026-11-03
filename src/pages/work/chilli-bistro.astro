@@ -1,0 +1,318 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const FEATURES = [
+  'WhatsApp cart ordering (pay by cash/UPI)',
+  'Searchable full menu with veg-only filter',
+  'Signature-dish carousel',
+  'Group combos',
+  'Table booking & party enquiries',
+  'Reviews, hours, map, Instagram',
+];
+---
+
+<Base
+  title="Chilli Bistro — Case study · Yash Kashyap"
+  description="Case study of Chilli Bistro website and WhatsApp ordering system built by Yash Kashyap."
+  showCursor={false}
+  showGrain={false}
+>
+  <div
+    style="min-height:100vh;background:var(--paper);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;font-size:17px;line-height:1.5;overflow-x:clip"
+  >
+    <!-- Header -->
+    <header
+      style="position:sticky;top:0;z-index:20;height:64px;padding:0 var(--gx);display:flex;justify-content:space-between;align-items:center;background:color-mix(in oklab,var(--paper) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+    >
+      <a href="/#work">← Back to work</a>
+      <span style="display:flex;gap:24px">
+        <span style="color:var(--mute)">01 / 06</span>
+        <a href="/#work-1">Next →</a>
+      </span>
+    </header>
+
+    <!-- CS Hero -->
+    <section
+      data-screen-label="CS Hero"
+      style="padding:96px var(--gx) 64px;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:40px"
+    >
+      <h1
+        style="grid-column:1 / span 9;margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-xl);line-height:.9;letter-spacing:-.03em"
+      >
+        Chilli <em style="color:var(--acc)">Bistro</em>
+      </h1>
+      <dl
+        style="grid-column:var(--c-side);margin:0;align-self:start;display:grid;grid-template-columns:64px 1fr;row-gap:10px;column-gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding-top:.8em"
+      >
+        <dt style="color:var(--mute)">Client</dt>
+        <dd style="margin:0">Chilli Bistro, Nahan</dd>
+        <dt style="color:var(--mute)">Type</dt>
+        <dd style="margin:0">Restaurant website</dd>
+        <dt style="color:var(--mute)">Year</dt>
+        <dd style="margin:0">2026</dd>
+        <dt style="color:var(--mute)">Role</dt>
+        <dd style="margin:0">Design · Dev · Launch</dd>
+        <dt style="color:var(--mute)">Live</dt>
+        <dd style="margin:0">
+          <a
+            href="https://chillibistro-nahan.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="border-bottom:1px solid currentColor;text-transform:none"
+          >
+            chillibistro-nahan… ↗
+          </a>
+        </dd>
+      </dl>
+    </section>
+
+    <!-- Showcase -->
+    <section style="padding:0 var(--gx)">
+      <div
+        style="position:relative;aspect-ratio:16 / 8.6;border-radius:20px;background:var(--surf);border:1px solid var(--hair);overflow:hidden"
+      >
+        <div
+          style="position:absolute;left:6%;top:9%;width:70%;border-radius:12px;overflow:hidden;border:1px solid var(--hair);background:var(--paper);box-shadow:0 40px 80px -40px rgba(0,0,0,.45)"
+        >
+          <div
+            style="height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--hair)"
+          >
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--hair)"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--hair)"></span>
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--hair)"></span>
+            <span style="margin:0 auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mute)">
+              chillibistro-nahan.netlify.app
+            </span>
+          </div>
+          <div id="cs-bb" style="position:relative;aspect-ratio:16 / 10;overflow:hidden;background:#fff">
+            <iframe
+              id="cs-bb-iframe"
+              src="https://chillibistro-nahan.netlify.app/"
+              title="Chilli Bistro desktop"
+              tabindex="-1"
+              style="position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none"
+            ></iframe>
+          </div>
+        </div>
+
+        <div
+          style="position:absolute;right:7%;top:16%;width:20%;aspect-ratio:9 / 19.2;border-radius:32px;border:7px solid #141210;background:#141210;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 70px -30px rgba(0,0,0,.55)"
+        >
+          <div
+            style="height:24px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:0 14px;background:#fff;color:#141210;font-size:11px;font-weight:600"
+          >
+            <span>9:41</span>
+            <span style="width:48px;height:12px;border-radius:999px;background:#141210"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9px">●●●</span>
+          </div>
+          <div id="cs-pb" style="position:relative;flex:1;overflow:hidden;background:#fff">
+            <iframe
+              id="cs-pb-iframe"
+              src="https://chillibistro-nahan.netlify.app/"
+              title="Chilli Bistro mobile"
+              tabindex="-1"
+              style="position:absolute;top:0;left:0;width:390px;height:844px;border:0;transform-origin:0 0;pointer-events:none"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CS Problem / What I built -->
+    <section
+      data-screen-label="CS Problem"
+      style="padding:160px var(--gx);display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:56px"
+    >
+      <div style="grid-column:var(--c-l);display:grid;gap:20px;align-content:start">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase">
+          <span style="color:var(--acc)">01</span> — The problem
+        </span>
+        <p
+          style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(30px,2.8vw,44px);line-height:1.1;letter-spacing:-.01em;text-wrap:pretty"
+        >
+          A casual Mall Road bistro, taking every order over the phone.
+        </p>
+        <span
+          style="justify-self:start;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px dashed var(--mute);padding:2px 6px;border-radius:4px"
+        >
+          [Yash: add 2–3 lines on the problem]
+        </span>
+      </div>
+
+      <div style="grid-column:var(--c-r);display:grid;gap:20px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase">
+          <span style="color:var(--acc)">02</span> — What I built
+        </span>
+        <ol style="margin:0;padding:0;list-style:none;display:grid">
+          {FEATURES.map((t, i) => (
+            <li
+              style="display:grid;grid-template-columns:48px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--hair);font-size:19px"
+            >
+              <span
+                style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--acc);padding-top:6px"
+              >
+                0{i + 1}
+              </span>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- Screenshot Placeholders -->
+    <section
+      style="padding:0 var(--gx);display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:24px"
+    >
+      <div
+        style="grid-column:var(--c-a);aspect-ratio:16 / 10;border-radius:14px;border:1px solid var(--hair);background:repeating-linear-gradient(135deg,var(--hair) 0 1px,transparent 1px 10px);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+      >
+        Desktop screenshot — menu page
+      </div>
+      <div
+        style="grid-column:var(--c-b);margin-top:120px;aspect-ratio:9 / 19;border-radius:28px;border:1px solid var(--hair);background:repeating-linear-gradient(135deg,var(--hair) 0 1px,transparent 1px 10px);display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+      >
+        Phone screenshot — veg filter
+      </div>
+    </section>
+
+    <!-- CS Key feature -->
+    <section
+      data-screen-label="CS Key feature"
+      style="padding:200px var(--gx);display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:56px"
+    >
+      <div
+        style="grid-column:var(--c-l);position:var(--sticky);top:120px;align-self:start;display:grid;gap:20px"
+      >
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase">
+          <span style="color:var(--acc)">03</span> — Key feature
+        </span>
+        <h2
+          style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-l);line-height:.95;letter-spacing:-.03em"
+        >
+          WhatsApp <em style="color:var(--acc)">ordering.</em>
+        </h2>
+        <p style="margin:0;max-width:420px;color:var(--mute)">
+          Add dishes to a cart, pick cash or UPI, and the order lands in the bistro's WhatsApp — ready to confirm.
+        </p>
+      </div>
+
+      <div style="grid-column:var(--c-r);display:grid;gap:24px">
+        <div
+          style="aspect-ratio:4 / 3;border-radius:14px;border:1px solid var(--hair);background:repeating-linear-gradient(135deg,var(--hair) 0 1px,transparent 1px 10px);display:flex;align-items:flex-end;padding:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+        >
+          01 · Screenshot — add to cart
+        </div>
+        <div
+          style="aspect-ratio:4 / 3;border-radius:14px;border:1px solid var(--hair);background:repeating-linear-gradient(135deg,var(--hair) 0 1px,transparent 1px 10px);display:flex;align-items:flex-end;padding:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+        >
+          02 · Screenshot — cart + payment choice
+        </div>
+        <div
+          style="aspect-ratio:4 / 3;border-radius:14px;border:1px solid var(--hair);background:repeating-linear-gradient(135deg,var(--hair) 0 1px,transparent 1px 10px);display:flex;align-items:flex-end;padding:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+        >
+          03 · Screenshot — pre-filled WhatsApp order
+        </div>
+      </div>
+    </section>
+
+    <!-- CS Result -->
+    <section
+      data-screen-label="CS Result"
+      style="padding:0 var(--gx) 200px;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:24px"
+    >
+      <span
+        style="grid-column:var(--c-l);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+      >
+        <span style="color:var(--acc)">04</span> — Result / what's next
+      </span>
+      <div style="grid-column:var(--c-r);display:grid;gap:16px">
+        <p
+          style="margin:0;font-family:'Instrument Serif',serif;font-size:clamp(30px,2.8vw,44px);line-height:1.1;letter-spacing:-.01em"
+        >
+          Now taking orders on WhatsApp instead of the phone.
+        </p>
+        <span
+          style="justify-self:start;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px dashed var(--mute);padding:2px 6px;border-radius:4px"
+        >
+          [Yash: add result + what's next]
+        </span>
+      </div>
+    </section>
+
+    <!-- Next project -->
+    <a
+      id="cs-next"
+      href="/#work-1"
+      style="position:relative;display:block;padding:64px var(--gx) 96px;border-top:1px solid var(--hair);color:var(--ink)"
+    >
+      <span
+        style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:16px"
+      >
+        Next project
+      </span>
+      <span
+        style="display:block;font-family:'Instrument Serif',serif;font-size:var(--d-xl);line-height:.9;letter-spacing:-.03em"
+      >
+        Suto <em>Café</em> →
+      </span>
+      <span
+        id="cs-thumb"
+        style="position:absolute;left:0;top:0;width:280px;aspect-ratio:16 / 10;border-radius:10px;overflow:hidden;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .3s,transform .4s cubic-bezier(.2,.7,0,1);box-shadow:0 30px 60px -30px rgba(0,0,0,.5);background:var(--surf);border:1px solid var(--hair)"
+      >
+        <iframe
+          src="https://suto-cafe-nahan.netlify.app/"
+          title="Suto Café preview"
+          loading="lazy"
+          tabindex="-1"
+          style="width:1440px;height:900px;border:0;transform:scale(.1944);transform-origin:0 0;pointer-events:none;background:#fff"
+        ></iframe>
+      </span>
+    </a>
+  </div>
+</Base>
+
+<script>
+  // Showcase scaling
+  const bb = document.getElementById('cs-bb');
+  const pb = document.getElementById('cs-pb');
+  const bbIframe = document.getElementById('cs-bb-iframe');
+  const pbIframe = document.getElementById('cs-pb-iframe');
+
+  function measureShowcase() {
+    if (bb && bbIframe) {
+      const bScale = bb.clientWidth / 1440;
+      bbIframe.style.transform = `scale(${bScale})`;
+    }
+    if (pb && pbIframe) {
+      const pScale = pb.clientWidth / 390;
+      const pIH = Math.ceil(pb.clientHeight / pScale) + 2;
+      pbIframe.style.transform = `scale(${pScale})`;
+      pbIframe.style.height = `${pIH}px`;
+    }
+  }
+
+  measureShowcase();
+  window.addEventListener('resize', measureShowcase);
+
+  // Next project hover thumbnail
+  const nextLink = document.getElementById('cs-next');
+  const thumb = document.getElementById('cs-thumb');
+
+  if (nextLink && thumb) {
+    nextLink.addEventListener('mousemove', (e) => {
+      const r = nextLink.getBoundingClientRect();
+      thumb.style.left = `${e.clientX - r.left}px`;
+      thumb.style.top = `${e.clientY - r.top}px`;
+    });
+    nextLink.addEventListener('mouseenter', () => {
+      thumb.style.opacity = '1';
+      thumb.style.transform = 'translate(-50%,-50%) scale(1) rotate(-3deg)';
+    });
+    nextLink.addEventListener('mouseleave', () => {
+      thumb.style.opacity = '0';
+      thumb.style.transform = 'translate(-50%,-50%) scale(.85)';
+    });
+  }
+</script>
+

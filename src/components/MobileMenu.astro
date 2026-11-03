@@ -1,0 +1,57 @@
+---
+---
+<div
+  id="mobile-menu"
+  style="position:fixed;inset:0;z-index:90;background:var(--paper);padding:20px 16px;display:none;flex-direction:column"
+>
+  <div style="display:flex;justify-content:space-between;align-items:center;height:44px">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase">
+      Yash Kashyap ©
+    </span>
+    <button
+      id="close-menu-btn"
+      style="background:none;border:1px solid var(--hair);border-radius:999px;color:var(--ink);padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer"
+    >
+      Close
+    </button>
+  </div>
+  <nav
+    style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;font-family:'Instrument Serif',serif;font-size:17vw;line-height:.95;letter-spacing:-.03em"
+  >
+    <a href="#work" data-menu-link>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;vertical-align:top;color:var(--acc)">01</span> Work
+    </a>
+    <a href="#process" data-menu-link>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;vertical-align:top;color:var(--acc)">02</span> <em>Process</em>
+    </a>
+    <a href="#about" data-menu-link>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;vertical-align:top;color:var(--acc)">03</span> About
+    </a>
+    <a href="#contact" data-menu-link>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;vertical-align:top;color:var(--acc)">04</span> Contact
+    </a>
+  </nav>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">
+    Nahan, IN · <span data-clock="hm"></span> IST
+  </span>
+</div>
+
+<script>
+  const menu = document.getElementById('mobile-menu');
+  const openBtn = document.getElementById('open-menu-btn');
+  const closeBtn = document.getElementById('close-menu-btn');
+  const links = document.querySelectorAll('[data-menu-link]');
+
+  function openMenu() {
+    if (menu) menu.style.display = 'flex';
+  }
+
+  function closeMenu() {
+    if (menu) menu.style.display = 'none';
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  links.forEach((l) => l.addEventListener('click', closeMenu));
+</script>
+

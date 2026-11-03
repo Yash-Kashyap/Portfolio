@@ -1,0 +1,147 @@
+---
+import { STACK } from '../data/site';
+---
+<section
+  id="about"
+  data-screen-label="05 About"
+  style="scroll-margin-top:64px;padding:var(--secpad) var(--gx) var(--secpad) calc(var(--rail) + var(--gx));display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:56px;border-top:1px solid var(--hair);position:relative"
+>
+  <span
+    style="position:absolute;top:0;left:calc(var(--rail) + var(--gx));transform:translateY(-50%);background:var(--paper);padding-right:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+  >
+    <span style="color:var(--acc)">05</span> — Under the hood
+  </span>
+
+  <!-- Left: Player card -->
+  <div style="grid-column:var(--c-pl);perspective:1000px">
+    <div
+      id="player-card"
+      style="padding:18px;border-radius:22px;background:var(--surf);border:1px solid var(--hair);display:grid;gap:16px;transition:transform .5s cubic-bezier(.2,.7,0,1),background-color .6s;transform-style:preserve-3d;box-shadow:0 40px 80px -50px rgba(0,0,0,.4)"
+    >
+      <div
+        style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+      >
+        <span>Player 1</span>
+        <span style="display:flex;align-items:center;gap:8px">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite"></span>
+          Online · available for work
+        </span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:16px;align-items:end">
+        <div
+          class="group/avatar"
+          style="aspect-ratio:1;border-radius:12px;overflow:hidden;filter:grayscale(.3) sepia(.18);transition:filter .6s"
+        >
+          <img
+            src="/assets/card-office.jpg"
+            alt="Yash at work, wearing his office lanyard"
+            loading="lazy"
+            class="hover:filter-none"
+            style="width:100%;height:100%;object-fit:cover;display:block"
+          />
+        </div>
+        <dl
+          style="margin:0;display:grid;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+        >
+          <div>
+            <dt style="color:var(--mute)">Class</dt>
+            <dd style="margin:2px 0 0">AI Web Dev</dd>
+          </div>
+          <div>
+            <dt style="color:var(--mute)">Base</dt>
+            <dd style="margin:2px 0 0">Nahan, HP</dd>
+          </div>
+          <div>
+            <dt style="color:var(--mute)">Level</dt>
+            <dd style="margin:2px 0 0">Data Eng. by day</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div
+        style="display:grid;gap:10px;padding-top:14px;border-top:1px solid var(--hair);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+      >
+        <span style="color:var(--mute)">Stats</span>
+        <div style="display:grid;grid-template-columns:130px 1fr 28px;gap:10px;align-items:center">
+          <span>Sites shipped</span>
+          <span style="display:flex;gap:3px">
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+          </span>
+          <span style="text-align:right">06</span>
+        </div>
+        <div style="display:grid;grid-template-columns:130px 1fr 28px;gap:10px;align-items:center">
+          <span>Industries</span>
+          <span style="display:flex;gap:3px">
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--ink)"></span>
+            <span style="flex:1;height:10px;background:var(--hair)"></span>
+          </span>
+          <span style="text-align:right">04</span>
+        </div>
+        <div style="display:grid;grid-template-columns:130px 1fr 28px;gap:10px;align-items:center">
+          <span>Coffee / day</span>
+          <span style="display:flex;gap:3px">
+            <span style="flex:1;height:10px;background:var(--acc)"></span>
+            <span style="flex:1;height:10px;background:var(--acc)"></span>
+            <span style="flex:1;height:10px;background:var(--acc)"></span>
+            <span style="flex:1;height:10px;background:var(--acc)"></span>
+            <span style="flex:1;height:10px;background:var(--acc)"></span>
+          </span>
+          <span style="text-align:right">∞</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Bio & Stack -->
+  <div style="grid-column:var(--c-pr);display:flex;flex-direction:column;gap:40px;padding-top:12px">
+    <h2
+      style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-l);line-height:.95;letter-spacing:-.03em"
+    >
+      Hi, I'm <em style="color:var(--acc)">Yash.</em>
+    </h2>
+    <p style="margin:0;font-size:22px;line-height:1.45;max-width:640px;text-wrap:pretty">
+      Data engineer by day: I build the pipelines that move company data. Web developer by night: I help small businesses in Nahan and beyond get online with fast, simple websites that bring in real customers.
+    </p>
+
+    <div style="display:grid;gap:14px">
+      <div
+        style="display:flex;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+      >
+        <span>Stack</span>
+        <span style="color:var(--mute);border:1px dashed var(--mute);padding:1px 6px;border-radius:4px">
+          [Yash: edit to exactly what you use]
+        </span>
+      </div>
+      <div
+        style="display:flex;flex-wrap:wrap;gap:8px;padding-top:14px;border-top:1px solid var(--hair)"
+      >
+        {STACK.map((st) => (
+          <span
+            class="hover:text-acc hover:border-acc transition-colors cursor-default"
+            style="padding:8px 14px;border:1px solid var(--hair);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)"
+          >
+            {st}
+          </span>
+        ))}
+      </div>
+      <a
+        href="https://github.com/Yash-Kashyap"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="align-self:flex-start;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:3px"
+      >
+        See the code on GitHub ↗
+      </a>
+    </div>
+  </div>
+</section>
+

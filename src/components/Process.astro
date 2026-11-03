@@ -1,0 +1,162 @@
+---
+import { WA } from '../data/site';
+---
+<section
+  id="process"
+  data-screen-label="04 Process"
+  style="scroll-margin-top:64px;position:relative;padding:var(--secpad) var(--gx) var(--secpad) calc(var(--rail) + var(--gx));display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:56px;border-top:1px solid var(--hair);overflow:clip"
+>
+  <img
+    src="/assets/hills.jpg"
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    style="position:absolute;left:0;right:0;top:0;width:100%;height:46%;object-fit:cover;opacity:.1;filter:grayscale(1);pointer-events:none;-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)"
+  />
+
+  <div
+    style="grid-column:var(--c-pl);position:var(--sticky);top:120px;align-self:start;display:flex;flex-direction:column;gap:24px;z-index:1"
+  >
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase">
+      <span style="color:var(--acc)">04</span> — How it works
+    </span>
+    <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-l);line-height:.95;letter-spacing:-.03em">
+      From “hello” to online <em style="color:var(--acc)">in four steps.</em>
+    </h2>
+    <ol
+      style="margin:16px 0 0;padding:0;list-style:none;display:grid;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+    >
+      <li style="display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--hair)">
+        <span style="color:var(--acc)">01</span>Chat
+      </li>
+      <li style="display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--hair)">
+        <span style="color:var(--acc)">02</span>Free demo
+      </li>
+      <li style="display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--hair)">
+        <span style="color:var(--acc)">03</span>Launch
+      </li>
+      <li style="display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)">
+        <span style="color:var(--acc)">04</span>Grow
+      </li>
+    </ol>
+  </div>
+
+  <div
+    style="grid-column:var(--c-pr);z-index:1;border-radius:24px;background:var(--surf);border:1px solid var(--hair);overflow:hidden"
+  >
+    <div
+      style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--hair)"
+    >
+      <span
+        style="width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:18px;font-style:italic"
+      >
+        C
+      </span>
+      <div style="display:flex;flex-direction:column;line-height:1.2">
+        <span style="font-weight:600;font-size:15px">Café owner, Nahan</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">
+          online
+        </span>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;padding:28px 20px 32px">
+      <span style="align-self:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">
+        Today
+      </span>
+
+      <div data-chat="" style="align-self:flex-start;max-width:78%;display:grid;gap:6px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)">
+          Step 01 / 04 · Chat
+        </span>
+        <div style="padding:12px 16px;border-radius:18px 18px 18px 4px;background:var(--paper);font-size:16px;line-height:1.4">
+          Hi! Can you make a site for my café? <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mute);margin-left:8px">10:02</span>
+        </div>
+      </div>
+
+      <div data-typing="" style="align-self:flex-end;display:none;gap:4px;padding:14px 16px;border-radius:18px 18px 4px 18px;background:var(--ink)">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s infinite"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s .15s infinite"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s .3s infinite"></span>
+      </div>
+
+      <div data-chat="yash" style="align-self:flex-end;max-width:78%;padding:12px 16px;border-radius:18px 18px 4px 18px;background:var(--ink);color:var(--paper);font-size:16px;line-height:1.4">
+        Sure! Tell me about it — your menu, timings, and what customers ask for most. <span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.6;margin-left:8px">10:03 ✓✓</span>
+      </div>
+
+      <div data-chat="" style="align-self:flex-start;max-width:78%;padding:12px 16px;border-radius:18px 18px 18px 4px;background:var(--paper);font-size:16px;line-height:1.4">
+        We get lots of orders on the phone. And people can't find us on Google. <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mute);margin-left:8px">10:05</span>
+      </div>
+
+      <div data-typing="" style="align-self:flex-end;display:none;gap:4px;padding:14px 16px;border-radius:18px 18px 4px 18px;background:var(--ink)">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s infinite"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s .15s infinite"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s .3s infinite"></span>
+      </div>
+
+      <div data-chat="yash" style="align-self:flex-end;max-width:78%;display:grid;gap:6px;justify-items:end">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)">
+          Step 02 / 04 · Free demo
+        </span>
+        <div style="padding:10px;border-radius:18px 18px 4px 18px;background:var(--ink);color:var(--paper);font-size:16px;line-height:1.4;display:grid;gap:10px">
+          <div style="display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:8px;border-radius:12px;background:rgba(127,127,127,.18)">
+            <img src="/assets/food2.jpg" alt="" loading="lazy" style="width:64px;height:64px;border-radius:8px;object-fit:cover;display:block" />
+            <div style="display:grid;gap:2px">
+              <span style="font-weight:600;font-size:14px">Your café — demo</span>
+              <span style="font-size:12px;opacity:.7">Menu · Order on WhatsApp · Book a table</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.6">yourcafe.netlify.app</span>
+            </div>
+          </div>
+          <span style="padding:0 6px 2px">Sending you a free working demo by tomorrow. <span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.6;margin-left:8px">10:06 ✓✓</span></span>
+        </div>
+      </div>
+
+      <span style="align-self:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">
+        Next day
+      </span>
+
+      <div data-chat="" style="align-self:flex-start;max-width:78%;padding:12px 16px;border-radius:18px 18px 18px 4px;background:var(--paper);font-size:16px;line-height:1.4">
+        Wow, this looks great. Let's go live! <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mute);margin-left:8px">11:20</span>
+      </div>
+
+      <div data-typing="" style="align-self:flex-end;display:none;gap:4px;padding:14px 16px;border-radius:18px 18px 4px 18px;background:var(--ink)">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s infinite"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s .15s infinite"></span>
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--paper);animation:blink 1s .3s infinite"></span>
+      </div>
+
+      <div data-chat="yash" style="align-self:flex-end;max-width:78%;display:grid;gap:6px;justify-items:end">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)">
+          Step 03 / 04 · Launch
+        </span>
+        <div style="padding:12px 16px;border-radius:18px 18px 4px 18px;background:var(--ink);color:var(--paper);font-size:16px;line-height:1.4">
+          Done: domain connected, Google Maps listing set up, WhatsApp ordering switched on. You're live. <span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.6;margin-left:8px">11:48 ✓✓</span>
+        </div>
+      </div>
+
+      <div data-chat="yash" style="align-self:flex-end;max-width:78%;display:grid;gap:6px;justify-items:end">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)">
+          Step 04 / 04 · Grow
+        </span>
+        <div style="padding:12px 16px;border-radius:18px 18px 4px 18px;background:var(--ink);color:var(--paper);font-size:16px;line-height:1.4">
+          From here I keep it growing — SEO, Instagram links, and menu updates whenever you need them. <span style="font-family:'JetBrains Mono',monospace;font-size:10px;opacity:.6;margin-left:8px">11:49 ✓✓</span>
+        </div>
+      </div>
+
+      <div data-chat="yash" style="align-self:flex-end;max-width:78%;padding:16px;border-radius:18px 18px 4px 18px;background:var(--ink);color:var(--paper);display:grid;gap:12px">
+        <span style="font-size:16px;line-height:1.4">Your turn. Tell me about your business?</span>
+        <a
+          data-wa-link
+          href={WA}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:brightness-110"
+          style="display:flex;justify-content:center;padding:12px 18px;border-radius:999px;background:var(--acc);color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase"
+        >
+          Start your chat ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+

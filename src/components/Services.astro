@@ -1,0 +1,118 @@
+---
+import { SERVICES } from '../data/site';
+---
+<section
+  id="services"
+  data-screen-label="03 Services"
+  style="position:relative;border-top:1px solid var(--hair)"
+>
+  <div
+    style="position:var(--svc-pos);top:0;height:var(--svc-h);overflow:hidden;display:flex;flex-direction:column;padding:var(--svc-pt) 0 48px"
+  >
+    <div
+      style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;padding:0 var(--gx) 0 calc(var(--rail) + var(--gx));margin-bottom:var(--svc-head-mb)"
+    >
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase">
+          <span style="color:var(--acc)">03</span> — What I can build for you
+        </span>
+        <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-l);line-height:.95;letter-spacing:-.03em">
+          Five things, <em>done well.</em>
+        </h2>
+      </div>
+      <div
+        style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+      >
+        <span>
+          <span style="color:var(--mute)">← Scroll sideways →</span>{' '}
+          <span id="services-counter" style="color:var(--ink)">01 / 05</span>
+        </span>
+        <span style="width:160px;height:1px;background:var(--hair);position:relative">
+          <span
+            id="services-bar"
+            style="position:absolute;left:0;top:-1px;height:3px;width:20%;background:var(--acc);transition:none"
+          ></span>
+        </span>
+      </div>
+    </div>
+
+    <div
+      id="services-track-wrap"
+      style="flex:1;overflow-x:var(--svc-ov);overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none"
+    >
+      <div
+        id="services-track"
+        style="display:flex;gap:24px;width:max-content;padding:0 var(--gx) 48px calc(var(--rail) + var(--gx));will-change:transform"
+      >
+        {SERVICES.map((s, i) => {
+          const isOdd = i % 2 === 1;
+          return (
+            <article
+              data-service-card={i}
+              class={`group ${isOdd ? 'md:mt-12' : ''}`}
+              style="scroll-snap-align:start;width:var(--card-w);height:var(--card-h);min-height:var(--card-min);display:flex;flex-direction:column;justify-content:space-between;padding:28px;border-radius:20px;background:var(--surf);border:1px solid var(--hair);position:relative;overflow:hidden;gap:20px;cursor:pointer;transition:border-color .3s,box-shadow .3s,transform .3s cubic-bezier(.22,1,.36,1)"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            >
+              <div style="position:relative;margin:-28px -28px 0;flex:1;min-height:var(--svc-img-min);overflow:hidden">
+                <img
+                  src={s.img}
+                  alt=""
+                  loading="lazy"
+                  class="group-hover:scale-105"
+                  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05);transition:transform 1.2s cubic-bezier(.22,1,.36,1)"
+                />
+                <span
+                  style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(15,14,12,.35),rgba(26,24,21,0) 40%,var(--surf))"
+                ></span>
+                <div
+                  style="position:absolute;left:28px;right:28px;top:24px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#F1EDE4"
+                >
+                  <span style="font-size:40px;letter-spacing:-.02em;line-height:1">{s.n}</span>
+                  <span
+                    data-service-tag
+                    style="padding:6px 10px;border-radius:999px;background:var(--acc);color:#0F0E0C;transition:background .3s,color .3s"
+                  >
+                    + Add to message
+                  </span>
+                </div>
+              </div>
+
+              <div style="display:grid;gap:var(--svc-gap)">
+                <h3
+                  style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--svc-h3);line-height:.95;letter-spacing:-.02em"
+                >
+                  {s.title}
+                </h3>
+                <ul
+                  style="margin:0;padding:0;list-style:none;display:grid;gap:8px;border-top:1px solid var(--hair);padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+                >
+                  {s.bullets.map((b) => (
+                    <li style="display:flex;gap:10px">
+                      <span style="color:var(--acc)">+</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                {s.built.length > 0 && (
+                  <div
+                    style="display:flex;flex-wrap:wrap;gap:6px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+                  >
+                    <span style="color:var(--mute)">Built in →</span>
+                    {s.built.map((bi) => (
+                      <a href={bi.href} style="border-bottom:1px solid currentColor">
+                        {bi.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+

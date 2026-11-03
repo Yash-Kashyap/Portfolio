@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+import Cursor from '../components/Cursor.astro';
+import Grain from '../components/Grain.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogTitle?: string;
+  ogImage?: string;
+  showCursor?: boolean;
+  showGrain?: boolean;
+}
+
+const {
+  title = "Yash Kashyap — AI Web Developer · Websites & web apps people actually use",
+  description = "I build fast websites and real-time web apps, from WhatsApp ordering for restaurants to video chat and ride booking. Based in Nahan, India, working worldwide.",
+  ogTitle = "Yash Kashyap — Websites people actually use",
+  ogImage = "/assets/hero-day.jpg",
+  showCursor = true,
+  showGrain = true,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://yashkashyap.dev');
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Yash Kashyap",
+      "jobTitle": "AI Web Developer",
+      "email": "mailto:yashkashyap1110@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nahan",
+        "addressRegion": "Himachal Pradesh",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.instagram.com/__yash_.kashyap_/",
+        "https://www.linkedin.com/in/yash--kashyap/",
+        "https://github.com/Yash-Kashyap"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "name": "Yash Kashyap — Websites for local businesses",
+      "areaServed": "Worldwide",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nahan",
+        "addressRegion": "Himachal Pradesh",
+        "addressCountry": "IN"
+      }
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site || 'https://yashkashyap.dev').href} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="skip-link"
+      style="top:8px;z-index:100;background:var(--ink);color:var(--paper);padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+    >
+      Skip to content
+    </a>
+
+    <slot />
+
+    {showCursor && <Cursor />}
+    {showGrain && <Grain />}
+  </body>
+</html>
+

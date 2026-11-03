@@ -1,0 +1,116 @@
+---
+import { PROJECTS } from '../data/site';
+import ProjectFrame from './ProjectFrame.astro';
+---
+<section
+  id="work"
+  data-screen-label="02 Selected work"
+  style="scroll-margin-top:64px;padding:0 var(--gx) var(--secpad) calc(var(--rail) + var(--gx));display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;border-top:1px solid var(--hair);position:relative"
+>
+  <span
+    style="position:absolute;top:0;left:calc(var(--rail) + var(--gx));transform:translateY(-50%);background:var(--paper);padding-right:12px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+  >
+    <span style="color:var(--acc)">02</span> — Selected work
+  </span>
+
+  <div
+    style="grid-column:var(--c-wl);display:var(--wl-d);position:sticky;top:96px;align-self:start;padding-top:96px"
+  >
+    <div
+      style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding-bottom:14px;border-bottom:1px solid var(--hair)"
+    >
+      <span>Index</span>
+      <span style="color:var(--mute)">06 / 06 shipped</span>
+    </div>
+    {PROJECTS.map((p, i) => (
+      <button
+        data-work-index={i}
+        style="width:100%;display:grid;grid-template-columns:16px 28px minmax(0,1fr) auto;align-items:baseline;gap:6px;padding:16px 0;background:none;border:0;border-bottom:1px solid var(--hair);color:var(--ink);text-align:left;cursor:pointer;opacity:0.35;transition:opacity .4s"
+      >
+        <span data-work-mark style="color:var(--acc);font-size:11px"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em">{p.n}</span>
+        <span style="font-family:'Instrument Serif',serif;font-size:clamp(20px,1.9vw,28px);line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+          {p.name}
+        </span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em">2026</span>
+      </button>
+    ))}
+    <dl
+      id="work-meta"
+      style="margin:28px 0 0;display:grid;grid-template-columns:90px 1fr;row-gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase"
+    >
+      <dt style="color:var(--mute)">Category</dt>
+      <dd id="work-meta-cat" style="margin:0">{PROJECTS[0].cat}</dd>
+      <dt style="color:var(--mute)">Location</dt>
+      <dd id="work-meta-loc" style="margin:0">{PROJECTS[0].loc}</dd>
+      <dt style="color:var(--mute)">Role</dt>
+      <dd style="margin:0">Design + Dev</dd>
+      <dt style="color:var(--mute)">Stack</dt>
+      <dd style="margin:0;color:var(--mute)">[Yash: add stack]</dd>
+    </dl>
+  </div>
+
+  <div
+    style="grid-column:var(--c-wr);display:flex;flex-direction:column;gap:clamp(120px,14vw,220px);padding-top:120px"
+  >
+    {PROJECTS.map((p, i) => (
+      <ProjectFrame project={p} index={i} />
+    ))}
+  </div>
+</section>
+
+<script>
+  import { PROJECTS } from '../data/site';
+
+  const EASE = 'cubic-bezier(.2,.7,0,1)';
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-work-index]');
+  const catEl = document.getElementById('work-meta-cat');
+  const locEl = document.getElementById('work-meta-loc');
+  const metaEl = document.getElementById('work-meta');
+
+  function setActive(idx: number) {
+    buttons.forEach((btn, i) => {
+      const isCur = i === idx;
+      btn.style.opacity = isCur ? '1' : '0.35';
+      const mark = btn.querySelector('[data-work-mark]');
+      if (mark) mark.textContent = isCur ? '▸' : '';
+    });
+
+    const p = PROJECTS[idx];
+    if (p) {
+      if (catEl) catEl.textContent = p.cat;
+      if (locEl) locEl.textContent = p.loc;
+      if (metaEl) {
+        metaEl.animate(
+          [
+            { opacity: 0, transform: 'translateY(6px)' },
+            { opacity: 1, transform: 'none' },
+          ],
+          { duration: 500, easing: EASE }
+        );
+      }
+    }
+  }
+
+  // Initial
+  setActive(0);
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.dataset.workIndex);
+      const target = document.getElementById(`work-${idx}`);
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY - 90;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  window.addEventListener('portfolio:project-change', (e: Event) => {
+    const custom = e as CustomEvent<{ index: number }>;
+    if (custom.detail) {
+      setActive(custom.detail.index);
+    }
+  });
+</script>
+
