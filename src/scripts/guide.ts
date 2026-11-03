@@ -81,7 +81,8 @@ export function initGuide(): GuideManager {
     }, 22);
 
     if (bubble && guideOpen) {
-      bubble.animate([{ transform: 'scale(.85)' }, { transform: 'scale(1)' }], {
+      // animate `scale`, not `transform`: transform holds the position set in gLoop
+      bubble.animate([{ scale: '.85' }, { scale: '1' }], {
         duration: 450,
         easing: EASE,
       });
@@ -90,9 +91,9 @@ export function initGuide(): GuideManager {
     if (gface) {
       gface.animate(
         [
-          { transform: 'translateY(0)' },
-          { transform: 'translateY(-10px)' },
-          { transform: 'translateY(0)' },
+          { translate: '0 0' },
+          { translate: '0 -10px' },
+          { translate: '0 0' },
         ],
         { duration: 420, easing: 'cubic-bezier(.3,1.6,.5,1)' }
       );
