@@ -25,6 +25,7 @@ export function initGuide(): GuideManager {
   let curKey = 'top';
   let typedKey = '';
   let introDone = false;
+  let poseDirty = false;
   let typeTimer: number | undefined;
 
   let gX: number | null = null;
@@ -41,10 +42,17 @@ export function initGuide(): GuideManager {
     img.src = `/assets/poses3d/${name}.png`;
   });
 
+  // These images all face the viewer's right; flip them so he faces the project
+  // (guide on right side -> face left). Other poses are front-facing.
+  const FACING = ['point', 'left', 'right'];
+  // 'left.png' natively faces left, others face right
+  const NATIVE_LEFT = ['left'];
+
   function updatePoses(key: string) {
-    const cur = POSE[key] || POSE.top || 'wave';
-    const [cn, cf] = cur.split('|');
-    const isFlipped = !!cf;
+    const cn = (POSE[key] || POSE.top || 'wave').split('|')[0];
+    const wantLeft = gSide === 'right';
+    const isFlipped =
+      FACING.includes(cn) && wantLeft !== NATIVE_LEFT.includes(cn);
 
     poseImgs.forEach((img) => {
       const name = img.dataset.pose;
@@ -213,7 +221,7 @@ export function initGuide(): GuideManager {
 
     if (key !== curKey) {
       curKey = key;
-      updatePoses(key);
+      poseDirty = true;
       if (introDone && key !== typedKey && key !== 'top') {
         typeGuide(key);
       }
@@ -244,7 +252,11 @@ export function initGuide(): GuideManager {
     }
 
     gMode = mode;
-    gSide = side;
+    if (side !== gSide || poseDirty) {
+      gSide = side;
+      poseDirty = false;
+      updatePoses(curKey);
+    }
 
     gVel = y - (gLastY == null ? y : gLastY);
     gLastY = y;
