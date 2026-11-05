@@ -12,3 +12,4 @@ dist/
 !astro.config.mjs
 !tailwind.config.mjs
 !tsconfig.json
+!README.md
