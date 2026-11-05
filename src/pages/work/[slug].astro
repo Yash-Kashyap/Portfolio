@@ -1,0 +1,192 @@
+---
+import Base from '../../layouts/Base.astro';
+import { PROJECTS } from '../../data/site';
+import { CASES, caseBySlug } from '../../data/cases';
+
+export function getStaticPaths() {
+  return CASES.map((c) => ({ params: { slug: c.slug } }));
+}
+
+const { slug } = Astro.params;
+const cs = caseBySlug(slug!)!;
+const idx = PROJECTS.findIndex((p) => p.caseHref === `/work/${slug}`);
+const p = PROJECTS[idx];
+const nextP = PROJECTS[(idx + 1) % PROJECTS.length];
+const total = String(PROJECTS.length).padStart(2, '0');
+const lbl =
+  "font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase";
+const big =
+  "margin:0;font-family:'Instrument Serif',serif;font-size:clamp(30px,2.8vw,44px);line-height:1.1;letter-spacing:-.01em;text-wrap:pretty";
+---
+
+<Base
+  title={`${p.name} — Case study · Yash Kashyap`}
+  description={cs.summary}
+  showCursor={false}
+  showGrain={false}
+>
+  <div
+    style="min-height:100vh;background:var(--paper);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;font-size:17px;line-height:1.5;overflow-x:clip"
+  >
+    <header
+      style={`position:sticky;top:0;z-index:20;height:64px;padding:0 var(--gx);display:flex;justify-content:space-between;align-items:center;background:color-mix(in oklab,var(--paper) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);${lbl}`}
+    >
+      <a href="/#work">← Back to work</a>
+      <span style="display:flex;gap:24px">
+        <span style="color:var(--mute)">{p.n} / {total}</span>
+        <a href={nextP.caseHref}>Next →</a>
+      </span>
+    </header>
+
+    <section
+      style="padding:96px var(--gx) 64px;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:40px"
+    >
+      <h1
+        style="grid-column:1 / span 9;margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-xl);line-height:.9;letter-spacing:-.03em"
+      >
+        {p.name}
+      </h1>
+      <dl
+        style={`grid-column:var(--c-side);margin:0;align-self:start;display:grid;grid-template-columns:64px 1fr;row-gap:10px;column-gap:12px;padding-top:.8em;${lbl}`}
+      >
+        <dt style="color:var(--mute)">Client</dt>
+        <dd style="margin:0">{cs.client}</dd>
+        <dt style="color:var(--mute)">Type</dt>
+        <dd style="margin:0">{cs.type}</dd>
+        <dt style="color:var(--mute)">Year</dt>
+        <dd style="margin:0">2026</dd>
+        <dt style="color:var(--mute)">Role</dt>
+        <dd style="margin:0">{cs.role}</dd>
+        <dt style="color:var(--mute)">Live</dt>
+        <dd style="margin:0">
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style="border-bottom:1px solid currentColor;text-transform:none"
+          >
+            {p.host} ↗
+          </a>
+        </dd>
+      </dl>
+    </section>
+
+    <section style="padding:0 var(--gx)">
+      <div
+        style="position:relative;aspect-ratio:16 / 8.6;border-radius:20px;background:var(--surf);border:1px solid var(--hair);overflow:hidden"
+      >
+        <img
+          src={p.dImg}
+          alt={`${p.name} on desktop`}
+          style="position:absolute;left:6%;top:9%;width:70%;border-radius:12px;border:1px solid var(--hair);box-shadow:0 40px 80px -40px rgba(0,0,0,.45);display:block"
+        />
+        <img
+          src={p.mImg}
+          alt={`${p.name} on mobile`}
+          style="position:absolute;right:7%;top:16%;width:20%;border-radius:28px;border:6px solid #141210;box-shadow:0 40px 70px -30px rgba(0,0,0,.55);display:block"
+        />
+      </div>
+    </section>
+
+    <section
+      style="padding:160px var(--gx) 120px;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:56px"
+    >
+      <div style="grid-column:var(--c-l);display:grid;gap:20px;align-content:start">
+        <span style={lbl}><span style="color:var(--acc)">01</span> — The problem</span>
+        <p style={big}>{cs.problem[0]}</p>
+      </div>
+      <div style="grid-column:var(--c-r);display:grid;gap:20px;align-content:start;color:var(--mute);font-size:19px">
+        {cs.problem.slice(1).map((t) => <p style="margin:0">{t}</p>)}
+      </div>
+    </section>
+
+    <section
+      style="padding:0 var(--gx) 160px;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:56px"
+    >
+      <div style="grid-column:var(--c-l);position:var(--sticky);top:120px;align-self:start;display:grid;gap:20px">
+        <span style={lbl}><span style="color:var(--acc)">02</span> — What got solved</span>
+        <h2
+          style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:var(--d-l);line-height:.95;letter-spacing:-.03em"
+        >
+          Problem, then <em style="color:var(--acc)">fix.</em>
+        </h2>
+      </div>
+      <ol style="grid-column:var(--c-r);margin:0;padding:0;list-style:none;display:grid">
+        {cs.solved.map((s, i) => (
+          <li
+            style="display:grid;grid-template-columns:48px 1fr;gap:12px;padding:24px 0;border-top:1px solid var(--hair)"
+          >
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--acc);padding-top:6px">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div style="display:grid;gap:8px">
+              <span style="font-size:21px;line-height:1.25">{s.problem}</span>
+              <span style="color:var(--mute);font-size:18px">{s.fix}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section
+      style="padding:0 var(--gx) 160px;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:24px"
+    >
+      <span style={`grid-column:var(--c-l);${lbl}`}><span style="color:var(--acc)">03</span> — Result</span>
+      <div style="grid-column:var(--c-r);display:grid;gap:20px">
+        <p style={big}>{cs.result[0]}</p>
+        {cs.result.slice(1).map((t) => <p style="margin:0;color:var(--mute);font-size:19px">{t}</p>)}
+      </div>
+    </section>
+
+    <section
+      style="padding:0 var(--gx) 200px;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));column-gap:24px;row-gap:24px"
+    >
+      <span style={`grid-column:var(--c-l);${lbl}`}><span style="color:var(--acc)">04</span> — What’s next</span>
+      <ul style="grid-column:var(--c-r);margin:0;padding:0;list-style:none;display:grid;font-size:19px">
+        {cs.next.map((t) => (
+          <li style="padding:16px 0;border-top:1px solid var(--hair)">{t}</li>
+        ))}
+      </ul>
+    </section>
+
+    <a
+      id="cs-next"
+      href={nextP.caseHref}
+      style="position:relative;display:block;padding:64px var(--gx) 96px;border-top:1px solid var(--hair);color:var(--ink)"
+    >
+      <span style={`display:block;${lbl};color:var(--mute);margin-bottom:16px`}>Next project</span>
+      <span
+        style="display:block;font-family:'Instrument Serif',serif;font-size:var(--d-xl);line-height:.9;letter-spacing:-.03em"
+      >
+        {nextP.name} →
+      </span>
+      <span
+        id="cs-thumb"
+        style="position:absolute;left:0;top:0;width:280px;aspect-ratio:16 / 10;border-radius:10px;overflow:hidden;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .3s,transform .4s cubic-bezier(.2,.7,0,1);box-shadow:0 30px 60px -30px rgba(0,0,0,.5);background:var(--surf);border:1px solid var(--hair)"
+      >
+        <img src={nextP.dImg} alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block" />
+      </span>
+    </a>
+  </div>
+</Base>
+
+<script>
+  const nextLink = document.getElementById('cs-next');
+  const thumb = document.getElementById('cs-thumb');
+
+  if (nextLink && thumb) {
+    nextLink.addEventListener('mousemove', (e) => {
+      const r = nextLink.getBoundingClientRect();
+      thumb.style.left = `${e.clientX - r.left}px`;
+      thumb.style.top = `${e.clientY - r.top}px`;
+    });
+    nextLink.addEventListener('mouseenter', () => {
+      thumb.style.opacity = '1';
+      thumb.style.transform = 'translate(-50%,-50%) scale(1) rotate(-3deg)';
+    });
+    nextLink.addEventListener('mouseleave', () => {
+      thumb.style.opacity = '0';
+      thumb.style.transform = 'translate(-50%,-50%) scale(.85)';
+    });
+  }
+</script>

@@ -36,8 +36,7 @@ export const PROJECTS: Project[] = [
       'Table booking & party enquiries',
       'Reviews, hours, map, Instagram',
     ],
-    tag: '[Yash: Client project / Concept build]',
-    ph: true,
+    tag: 'Client project · Live',
     cat: 'Restaurant',
     loc: 'Nahan, HP',
     caseHref: '/work/chilli-bistro',
@@ -58,10 +57,10 @@ export const PROJECTS: Project[] = [
       'Instagram/YouTube vibe gallery',
       'Zomato + Google Maps directions',
     ],
-    tag: '[Yash: Client project / Concept build]',
-    ph: true,
+    tag: 'Client project · Live',
     cat: 'Café',
     loc: 'Nahan, HP',
+    caseHref: '/work/suto-cafe',
   },
   {
     n: '03',
@@ -84,6 +83,7 @@ export const PROJECTS: Project[] = [
     ph: true,
     cat: 'Café & kitchen',
     loc: 'Nahan, HP',
+    caseHref: '/work/the-town-house',
   },
   {
     n: '04',
@@ -106,6 +106,7 @@ export const PROJECTS: Project[] = [
     tag: 'Own product · Live',
     cat: 'Real-time web app',
     loc: 'Worldwide',
+    caseHref: '/work/randomchat-social',
   },
   {
     n: '05',
@@ -127,6 +128,7 @@ export const PROJECTS: Project[] = [
     tag: 'Own product · Live',
     cat: 'Ride booking',
     loc: 'Nahan, HP',
+    caseHref: '/work/pikkndrop',
   },
   {
     n: '06',
@@ -148,6 +150,7 @@ export const PROJECTS: Project[] = [
     tag: 'Own product · Live',
     cat: 'Festive web app',
     loc: 'India',
+    caseHref: '/work/chaand-nikla-kya',
   },
 ];
 
